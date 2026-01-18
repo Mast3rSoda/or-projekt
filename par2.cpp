@@ -151,7 +151,7 @@ int main(int argc, char **argv) {
   if (rank == 0) {
     mkdir("frames", 0777);
   }
-  MPI_Barrier(MPI_COMM_WORLD); // czekamy aż folder będzie gotowy
+  MPI_Barrier(MPI_COMM_WORLD);
 #endif
 
   MPI_Barrier(MPI_COMM_WORLD);
