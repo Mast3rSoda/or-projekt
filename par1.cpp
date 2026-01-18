@@ -66,9 +66,9 @@ int main(int argc, char *argv[]) {
     ss >> iterations;
   }
 
-    int base = N / size;
-    int rem = N % size;
-    int row_count = base + (rank < rem ? 1 : 0);
+  int base = N / size;
+  int rem = N % size;
+  int row_count = base + (rank < rem ? 1 : 0);
 
   vector<vector<int>> current(row_count + 2, vector<int>(N));
   vector<vector<int>> next(row_count + 2, vector<int>(N));
@@ -99,7 +99,10 @@ int main(int argc, char *argv[]) {
   double end = MPI_Wtime();
 
   if (rank == 0) {
-    cout << "time: " << (end - start) / iterations << " s\n";
+    double avg = (end - start) / iterations;
+    cout << "RESULT type=sendrecv"
+         << " N=" << N << " iters=" << iterations << " procs=" << size
+         << " avg_iter=" << avg << endl;
   }
 
   MPI_Finalize();

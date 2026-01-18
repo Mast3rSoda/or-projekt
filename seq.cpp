@@ -85,7 +85,11 @@ int main(int argc, char *argv[]) {
   auto end = chrono::high_resolution_clock::now();
 
   chrono::duration<double> elapsed = end - start;
-  cout << "Elapsed time: " << elapsed.count() << " s\n";
+  double avg = elapsed.count() / iterations;
+
+  cout << "RESULT type=seq"
+       << " N=" << N << " iters=" << iterations << " procs=1"
+       << " avg_iter=" << avg << endl;
 
   return 0;
 }

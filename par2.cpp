@@ -193,7 +193,10 @@ int main(int argc, char **argv) {
 #endif
 
   if (rank == 0) {
-    cout << "Avg iteration time: " << (end - start) / iterations << " s\n";
+    double avg = (end - start) / iterations;
+    cout << "RESULT type=async"
+         << " N=" << N << " iters=" << iterations << " procs=" << size
+         << " avg_iter=" << avg << endl;
   }
 
   MPI_Finalize();
