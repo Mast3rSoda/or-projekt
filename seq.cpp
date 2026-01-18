@@ -74,10 +74,6 @@ int main(int argc, char *argv[]) {
   auto start = chrono::high_resolution_clock::now();
 
   for (int iter = 0; iter < iterations; iter++) {
-    // system("clear");
-    // cout << "Iteration: " << iter << endl;
-    // print_board(current, N);
-
     step(current, next, N);
     current.swap(next);
   }
